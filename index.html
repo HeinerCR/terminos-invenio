@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Términos y Condiciones | Sistema de Reservas - Campus Heredia</title>
+  <meta name="description" content="Términos y condiciones del sistema de reservas del Campus Heredia - Universidad Invenio." />
+  <style>
+    :root{
+      /* Invenio-inspired palette */
+      --navy:#0e1a4b;
+      --blue:#1c2f86;
+      --green:#7bd100;
+
+      --text:#eef3ff;
+      --muted:rgba(238,243,255,.78);
+      --muted2:rgba(238,243,255,.62);
+
+      --cardA: rgba(255,255,255,.07);
+      --cardB: rgba(255,255,255,.05);
+      --border: rgba(255,255,255,.14);
+      --border2: rgba(255,255,255,.22);
+
+      --radius:22px;
+
+      --shadow0: 0 12px 34px rgba(0,0,0,.22);
+      --shadow1: 0 22px 70px rgba(0,0,0,.40);
+
+      --ease: cubic-bezier(.2,.8,.2,1);
+    }
+
+    *{ box-sizing:border-box; }
+    html, body{ height:100%; }
+
+    /* Seamless full-page background */
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      line-height:1.65;
+      background: radial-gradient(1200px 900px at 15% 10%, rgba(123,209,0,.22), transparent 55%),
+                  radial-gradient(1200px 900px at 85% 12%, rgba(28,47,134,.34), transparent 60%),
+                  radial-gradient(1200px 900px at 50% 110%, rgba(14,26,75,.58), transparent 62%),
+                  linear-gradient(180deg, #050b1d 0%, #07102a 70%, #050b1d 140%);
+      background-attachment: fixed;
+    }
+
+    a{ color: #9edcff; text-decoration: none; }
+    a:hover{ text-decoration: underline; }
+
+    .wrap{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 34px 18px 72px;
+    }
+
+    /* ===== HERO ===== */
+    .hero{
+      border: 1px solid var(--border);
+      background: rgba(5,11,29,.62);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow1);
+      padding: 28px;
+      position: relative;
+      overflow:hidden;
+      transform: translateY(6px);
+      opacity: 0;
+      animation: fadeUp .7s var(--ease) forwards;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(520px 240px at 18% 22%, rgba(123,209,0,.18), transparent 62%),
+        radial-gradient(560px 260px at 82% 26%, rgba(28,47,134,.22), transparent 64%);
+      pointer-events:none;
+      opacity: .95;
+    }
+
+    /* subtle edge glow */
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: var(--radius);
+      pointer-events:none;
+      box-shadow: 0 0 0 1px rgba(123,209,0,.08) inset,
+                  0 0 0 1px rgba(28,47,134,.08) inset;
+      opacity:.9;
+    }
+
+    .hero-inner{
+      position:relative;
+      display:flex;
+      align-items:center;
+      gap:26px;
+    }
+
+    .logo{
+      width: 210px; /* bigger */
+      height:auto;
+      flex: 0 0 auto;
+      filter: drop-shadow(0 10px 24px rgba(0,0,0,.30));
+      transform: translateZ(0);
+    }
+
+    .hero-text{ min-width:0; }
+
+    .hero h1{
+      margin:0;
+      font-size: clamp(22px, 3.1vw, 40px);
+      letter-spacing: .2px;
+      line-height:1.15;
+    }
+
+    .hero p{
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 14.6px;
+      max-width: 78ch;
+    }
+
+    .accent{
+      height: 3px;
+      width: 130px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--green), #b6ff43, var(--blue));
+      margin-top: 14px;
+      opacity: .95;
+    }
+
+    /* ===== GRID ===== */
+    .grid{
+      margin-top: 18px;
+      display:grid;
+      gap: 16px;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 960px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+      .span-2{ grid-column: 1 / -1; }
+    }
+
+    /* ===== CARDS ===== */
+    .card{
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, var(--cardA) 0%, var(--cardB) 100%);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow0);
+      padding: 20px 20px 18px;
+      position: relative;
+
+      /* entrance */
+      transform: translateY(10px);
+      opacity: 0;
+      animation: fadeUp .7s var(--ease) forwards;
+      animation-delay: var(--d, 0ms);
+
+      /* hover animation */
+      transition: transform .28s var(--ease), box-shadow .28s var(--ease), border-color .28s var(--ease);
+      will-change: transform, box-shadow;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      border-radius: var(--radius);
+      pointer-events:none;
+      background: radial-gradient(500px 220px at 20% 15%, rgba(123,209,0,.10), transparent 55%),
+                  radial-gradient(520px 240px at 85% 25%, rgba(28,47,134,.12), transparent 60%);
+      opacity: 0;
+      transition: opacity .28s var(--ease);
+    }
+
+    .card:hover{
+      transform: translateY(-6px);
+      box-shadow: 0 26px 90px rgba(0,0,0,.45);
+      border-color: var(--border2);
+    }
+
+    .card:hover::before{ opacity: 1; }
+
+    .card h2{
+      margin:0 0 10px;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    ul{ margin: 10px 0 0 18px; padding:0; }
+    li{ margin: 8px 0; color: rgba(238,243,255,.92); }
+
+    .note{
+      margin-top: 12px;
+      border-radius: 16px;
+      border: 1px dashed rgba(123,209,0,.55);
+      background: rgba(123,209,0,.10);
+      padding: 12px 14px;
+      color: rgba(238,243,255,.95);
+    }
+
+    .contact{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      margin-top: 8px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(158,220,255,.22);
+      background: rgba(158,220,255,.08);
+    }
+    .contact strong{ font-weight: 650; }
+    .contact small{ color: var(--muted2); display:block; margin-top:2px; }
+
+    footer{
+      margin-top: 18px;
+      color: var(--muted2);
+      font-size: 12.8px;
+      text-align:center;
+    }
+
+    /* Mobile */
+    @media (max-width: 560px){
+      .wrap{ padding: 22px 14px 54px; }
+      .hero{ padding: 18px; }
+      .hero-inner{ flex-direction: column; align-items:flex-start; gap:14px; }
+      .logo{ width: 190px; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .hero, .card{ animation: none; opacity: 1; transform: none; }
+      .card, .card::before{ transition: none; }
+    }
+
+    @keyframes fadeUp{
+      to{ opacity:1; transform: translateY(0); }
+    }
+
+    /* Print */
+    @media print{
+      body{ background:#fff; color:#111; }
+      .hero, .card{ background:#fff; box-shadow:none; }
+      a{ color:#0b57d0; }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <section class="hero" aria-label="Encabezado">
+      <div class="hero-inner">
+        <!-- Mantén Bannerlogo.png en la MISMA carpeta que este HTML -->
+        <img class="logo" alt="Invenio Universidad Dual" src="Bannerlogo.png">
+        <div class="hero-text">
+          <h1>Términos y Condiciones del Sistema de Reservas</h1>
+          <p>Campus Heredia – Universidad Invenio • Al realizar una reserva, el usuario acepta las condiciones descritas a continuación.</p>
+          <div class="accent" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Contenido">
+
+      <article class="card" style="--d: 80ms">
+        <h2>Uso de Aulas</h2>
+        <ul>
+          <li>Las aulas están destinadas exclusivamente para <strong>reposición de clases</strong> o <strong>aplicación de exámenes</strong>.</li>
+          <li>La reserva debe ser realizada únicamente por el <strong>profesor o la profesora responsable del curso</strong>.</li>
+          <li>Cualquier reserva realizada por estudiantes u otra persona que no sea el docente será <strong>cancelada automáticamente</strong>.</li>
+          <li>Duración de cada reserva: <strong>4 horas por bloque</strong>.</li>
+          <li>Para extender el tiempo, deben realizarse <strong>reservas consecutivas</strong>.</li>
+        </ul>
+        <div class="note">Recomendación: incluir en la reserva el nombre del curso y/o sección para facilitar la validación.</div>
+      </article>
+
+      <article class="card" style="--d: 140ms">
+        <h2>Uso de Cubículos</h2>
+        <ul>
+          <li>Los cubículos están destinados para <strong>estudio</strong>, <strong>reuniones académicas</strong> o <strong>trabajo colaborativo</strong>.</li>
+          <li>Duración de cada reserva: <strong>1 hora por bloque</strong>.</li>
+          <li>Puede realizar reservas consecutivas si necesita más tiempo.</li>
+          <li>El usuario debe respetar el espacio y dejarlo en las mismas condiciones en que fue recibido.</li>
+        </ul>
+      </article>
+
+      <article class="card span-2" style="--d: 200ms">
+        <h2>Uso de Impresoras 3D</h2>
+        <ul>
+          <li>Las impresoras 3D son de <strong>uso exclusivo para proyectos académicos, trabajos educativos</strong> y desarrollo de prototipos relacionados con cursos o actividades institucionales.</li>
+          <li><strong>No se permite</strong> el uso para fines personales, comerciales o externos a la universidad.</li>
+          <li>Duración de cada reserva: <strong>2 horas por bloque</strong>.</li>
+          <li>Si la impresión requiere más tiempo, el usuario deberá realizar <strong>2 o 3 reservas consecutivas</strong>, según la duración estimada.</li>
+          <li>Es responsabilidad del usuario verificar previamente el tiempo estimado de impresión antes de confirmar la reserva.</li>
+        </ul>
+      </article>
+
+      <article class="card" style="--d: 260ms">
+        <h2>Cancelaciones y Validación</h2>
+        <ul>
+          <li>La administración del campus se reserva el derecho de cancelar reservas que no cumplan con estas disposiciones.</li>
+          <li>El mal uso de los espacios o equipos podrá implicar la <strong>suspensión temporal</strong> del sistema de reservas para el usuario.</li>
+        </ul>
+      </article>
+
+      <article class="card" style="--d: 320ms">
+        <h2>Contacto</h2>
+        <div class="contact">
+          <div aria-hidden="true" style="font-size:22px; line-height:1;">✉</div>
+          <div>
+            <strong><a href="mailto:campus.heredia@invenio.ac.cr">campus.heredia@invenio.ac.cr</a></strong>
+            <small>Para consultas, inconvenientes o validaciones relacionadas con reservas.</small>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      © Universidad Invenio – Campus Heredia. Documento informativo para el sistema de reservas.
+    </footer>
+
+  </main>
+</body>
+</html>
