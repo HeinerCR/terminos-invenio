@@ -281,6 +281,20 @@
     }
 
     /* Motion safety */
+    
+    .row-two{
+      display:grid;
+      gap:18px;
+      grid-template-columns:1fr;
+      margin-top:18px;
+    }
+
+    @media(min-width:900px){
+      .row-two{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+    
     @media(prefers-reduced-motion: reduce){
       .logo{ animation:none; }
       .card{ animation:none; opacity:1; transform:none; }
@@ -350,6 +364,8 @@
         </ul>
       </article>
 
+      <div class="row-two">
+
       <article class="card" style="--d:260ms">
         <h2>Cancelaciones y Validación</h2>
         <ul>
@@ -368,6 +384,8 @@
           </div>
         </div>
       </article>
+
+      </div>
 
     </section>
 
